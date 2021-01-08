@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+
 public class FlightTest {
     Passenger passenger1;
     Passenger passenger2;
@@ -31,10 +33,10 @@ public class FlightTest {
 
     }
 
-//    @Test
-//    public void canReturnPlaneCapacity__smallPlane(){
-//
-//    }
+    @Test
+    public void canReturnPlaneCapacity(){
+        assertEquals(3, smallPlane.getCapacity());
+    }
 
 
 }
