@@ -1,9 +1,10 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 public class FlightTest {
+    Flight flight;
     Passenger passenger1;
     Passenger passenger2;
     Passenger passenger3;
@@ -31,12 +32,34 @@ public class FlightTest {
         smallPlane = new Plane(PlaneType.BOEING747);
         largePlane = new Plane(PlaneType.AIRBUSA380);
 
+        flight = new Flight(smallPlane, "BA356", "TOK", "GLA", "20.00" );
+
+
     }
 
     @Test
     public void canReturnPlaneCapacity(){
         assertEquals(3, smallPlane.getCapacity());
     }
+
+    @Test
+    public void canAddPassengerToPassengerList(){
+        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger2);
+        assertTrue(flight.getPassengers().contains(passenger1));
+        assertEquals(2, flight.getPassengers().size());
+    }
+
+    @Test
+    public void checkNumberOfGuestsOnFlight(){
+        flight.addPassenger(passenger1);
+        flight.addPassenger(passenger2);
+        assertEquals(2, flight.passengerCount());
+
+    }
+
+
+
 
 
 }
