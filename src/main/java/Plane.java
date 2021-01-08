@@ -4,4 +4,14 @@ public class Plane {
     public Plane(PlaneType planeType){
         this.type = planeType;
     }
+
+    public PlaneType getType() {
+        return type;
+    }
+
+    public int getCapacity(){
+        return type.getCapacity();
+    }
+
+
 }
