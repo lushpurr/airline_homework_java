@@ -5,6 +5,7 @@ import static org.junit.Assert.*;
 
 public class FlightTest {
     Flight flight;
+    Flight flight1;
     Passenger passenger1;
     Passenger passenger2;
     Passenger passenger3;
@@ -32,14 +33,15 @@ public class FlightTest {
         smallPlane = new Plane(PlaneType.BOEING747);
         largePlane = new Plane(PlaneType.AIRBUSA380);
 
-        flight = new Flight(smallPlane, "BA356", "TOK", "GLA", "20.00" );
+        flight = new Flight(smallPlane, "BA122", "Lis", "GLA", "20.00" );
+        flight1 = new Flight(largePlane, "BA356", "TOK", "GLA", "06.00" );
 
 
     }
 
     @Test
     public void canReturnPlaneCapacity(){
-        assertEquals(3, smallPlane.getCapacity());
+        assertEquals(3, flight.planeCapacity());
     }
 
     @Test
@@ -59,8 +61,31 @@ public class FlightTest {
     }
 
     @Test
-    public void canPassengersFitOnPlane(){
+    public void canAddPassenger__smallPlane(){
+        flight.addPassengerIfSpace(passenger1);
+        flight.addPassengerIfSpace(passenger2);
+        assertEquals(2, flight.passengerCount());
+    }
 
+    @Test
+    public void cantAddPassenger__smallPlane(){
+        flight.addPassengerIfSpace(passenger1);
+        flight.addPassengerIfSpace(passenger2);
+        flight.addPassengerIfSpace(passenger3);
+        flight.addPassengerIfSpace(passenger4);
+        flight.addPassengerIfSpace(passenger5);
+        assertEquals(3, flight.passengerCount());
+    }
+
+    @Test
+    public void cantAddPassengerIfSpace__largePlane(){
+        flight1.addPassengerIfSpace(passenger1);
+        flight1.addPassengerIfSpace(passenger2);
+        flight1.addPassengerIfSpace(passenger3);
+        flight1.addPassengerIfSpace(passenger4);
+        flight1.addPassengerIfSpace(passenger5);
+        flight1.addPassengerIfSpace(passenger6);
+        assertEquals(5, flight1.passengerCount());
     }
 
 

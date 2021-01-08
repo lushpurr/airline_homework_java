@@ -34,5 +34,14 @@ public class Flight {
         return this.passengers.size();
     }
 
-    
+    public int planeCapacity(){
+        return this.plane.getCapacity();
+    }
+
+
+    public void addPassengerIfSpace(Passenger passenger) {
+        if (this.passengerCount() < this.planeCapacity()){
+            this.addPassenger(passenger);
+        }
+    }
 }
