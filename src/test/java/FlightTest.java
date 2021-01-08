@@ -58,6 +58,11 @@ public class FlightTest {
 
     }
 
+    @Test
+    public void canPassengersFitOnPlane(){
+
+    }
+
 
 
 
