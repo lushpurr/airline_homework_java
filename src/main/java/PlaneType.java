@@ -1,7 +1,7 @@
 public enum PlaneType {
 
-    BOEING747(3, 90),
-    AIRBUSA380(5, 150);
+    BOEING747(3, 180),
+    AIRBUSA380(5, 300);
 
 
     private final int capacity;

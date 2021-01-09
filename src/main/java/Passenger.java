@@ -6,4 +6,8 @@ public class Passenger {
         this.name = name;
         this.numBags = numBags;
     }
+
+    public String getName() {
+        return name;
+    }
 }

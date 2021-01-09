@@ -25,12 +25,12 @@ public class PlaneTest {
 
     @Test
     public void canGetPlaneWeight(){
-        assertEquals(90, smallPlane.getWeight(), 0.01);
+        assertEquals(180, smallPlane.getWeight(), 0.01);
     }
 
     @Test
     public void canGetAvailableBaggageWeight(){
-        assertEquals(45.0, smallPlane.getBaggageWeight(), 0.01);
+        assertEquals(90.0, smallPlane.getBaggageWeight(), 0.01);
     }
 
 }
