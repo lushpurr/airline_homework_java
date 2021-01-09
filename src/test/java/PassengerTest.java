@@ -30,4 +30,9 @@ public class PassengerTest {
     public void canGetPassengerName(){
         assertEquals("Gavin", passenger1.getName());
     }
+
+    @Test
+    public void canGetNumBags(){
+        assertEquals(1, passenger1.getNumBags());
+    }
 }
