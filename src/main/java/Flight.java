@@ -49,4 +49,7 @@ public class Flight {
     }
 
 
+    public String getFlightNumber() {
+        return flightNumber;
+    }
 }

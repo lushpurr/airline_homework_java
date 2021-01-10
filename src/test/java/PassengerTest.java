@@ -1,9 +1,13 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class PassengerTest {
+    Plane smallPlane;
+    Flight flight;
     Passenger passenger1;
     Passenger passenger2;
     Passenger passenger3;
@@ -16,6 +20,10 @@ public class PassengerTest {
 
     @Before
     public void setUp() {
+        smallPlane = new Plane(PlaneType.BOEING747);
+
+        flight = new Flight(smallPlane, "BA122", "Lis", "GLA", null);
+
         passenger1 = new Passenger("Gavin", 1, null);
         passenger2 = new Passenger("Caroline", 1, null);
         passenger3 = new Passenger("Linda", 1, null);
@@ -35,4 +43,17 @@ public class PassengerTest {
     public void canGetNumBags(){
         assertEquals(1, passenger1.getNumBags());
     }
+
+    @Test
+    public void canAssignFlightToPassenger(){
+        passenger1.setFlight(flight);
+        assertEquals(flight,passenger1.getFlight());
+    }
+
+    @Test
+    public void canAssignSeatNumber(){
+        ArrayList<Passenger> passengers
+
+    }
+
 }

@@ -10,7 +10,7 @@ public class FlightTest {
     Flight flight;
     Flight flight1;
 
-    Date date.String;
+    Date date;
     Date date1;
 
     Passenger passenger1;
@@ -101,10 +101,7 @@ public class FlightTest {
         assertEquals(5, flight1.passengerCount());
     }
 
-    @Test
-    public void canConvertStringDateToLongDate(){
 
-    }
 
 
 
