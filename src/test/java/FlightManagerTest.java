@@ -14,11 +14,11 @@ public class FlightManagerTest {
 
     @Before
     public void setUp(){
-        passenger1 = new Passenger("Gavin", 1);
-        passenger2 = new Passenger("Caroline", 1);
+        passenger1 = new Passenger("Gavin", 1, null);
+        passenger2 = new Passenger("Caroline", 1, null);
         smallPlane = new Plane(PlaneType.BOEING747);
         largePlane = new Plane(PlaneType.AIRBUSA380);
-        flight = new Flight(smallPlane, "BA122", "Lis", "GLA", "20.00" );
+        flight = new Flight(smallPlane, "BA122", "Lis", "GLA", null );
         flightManager = new FlightManager(smallPlane);
 
     }
