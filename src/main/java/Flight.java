@@ -80,4 +80,6 @@ public class Flight {
     public ArrayList<Integer> getSeatNumbers() {
         return seatNumbers;
     }
+
+    public int remainingSeats() { return this.plane.getCapacity() - passengerCount(); }
 }

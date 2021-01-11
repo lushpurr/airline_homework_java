@@ -1,6 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 
 public class FlightManagerTest {
@@ -19,20 +21,10 @@ public class FlightManagerTest {
         smallPlane = new Plane(PlaneType.BOEING747);
         largePlane = new Plane(PlaneType.AIRBUSA380);
         flight = new Flight(smallPlane, "BA122", "Lis", "GLA", null );
-        flightManager = new FlightManager(smallPlane);
+        flightManager = new FlightManager(flight);
 
     }
 
-    @Test
-    public void canGetCapacity(){
-        assertEquals(3, flightManager.getPlaneCapacity());
-    }
-//    calculate how much baggage weight should be reserved for each passenger for a flight
-
-    @Test
-    public void canGetBaggageWeightReservedPerPassenger(){
-        assertEquals(30.0, flightManager.getPassengerBaggageReserve(), 0.01);
-    }
 
 //    calculate how much baggage weight is booked by passengers of a flight
     @Test
@@ -53,5 +45,18 @@ public class FlightManagerTest {
         flight.addPassengerIfSpace(passenger1);
         flight.addPassengerIfSpace(passenger2);
         assertEquals(30, flightManager.getRemainingBaggageWeight(flight.getPassengers()), 0.01);
+    }
+
+    // sort passengers
+
+    @Test
+    public void canSortPassengers(){
+        flightManager.bookPassenger(passenger1);
+        flightManager.bookPassenger(passenger2);
+        passenger1.setSeatNumber(2);
+        passenger2.setSeatNumber(1);
+        ArrayList<Passenger> sortedPassengers = flightManager.sortPassengers();
+        Passenger firstPassengerInArray = sortedPassengers.get(0);
+        assertEquals(passenger2, firstPassengerInArray);
     }
 }
