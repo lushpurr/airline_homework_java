@@ -24,14 +24,14 @@ public class PassengerTest {
 
         flight = new Flight(smallPlane, "BA122", "Lis", "GLA", null);
 
-        passenger1 = new Passenger("Gavin", 1, null);
-        passenger2 = new Passenger("Caroline", 1, null);
-        passenger3 = new Passenger("Linda", 1, null);
-        passenger4 = new Passenger("John", 1, null);
-        passenger5 = new Passenger("Nadia", 1, null);
-        passenger6 = new Passenger("Rikki", 1, null);
-        passenger7 = new Passenger("Gregor", 1, null);
-        passenger8 = new Passenger("Laura", 1, null);
+        passenger1 = new Passenger("Gavin", 1);
+        passenger2 = new Passenger("Caroline", 1);
+        passenger3 = new Passenger("Linda", 1);
+        passenger4 = new Passenger("John", 1);
+        passenger5 = new Passenger("Nadia", 1);
+        passenger6 = new Passenger("Rikki", 1);
+        passenger7 = new Passenger("Gregor", 1);
+        passenger8 = new Passenger("Laura", 1);
     }
 
     @Test
@@ -50,10 +50,10 @@ public class PassengerTest {
         assertEquals(flight,passenger1.getFlight());
     }
 
-    @Test
-    public void canAssignSeatNumber(){
-        ArrayList<Passenger> passengers
-
-    }
+//    @Test
+//    public void canAssignSeatNumber(){
+//        ArrayList<Passenger> passengers
+//
+//    }
 
 }

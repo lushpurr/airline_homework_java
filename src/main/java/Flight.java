@@ -2,6 +2,7 @@ import java.sql.SQLOutput;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Random;
 
 public class Flight {
     private ArrayList<Passenger> passengers;
@@ -10,6 +11,7 @@ public class Flight {
     private String destination;
     private String departureAirport;
     private Date departureTime;
+    private ArrayList<Integer> seatNumbers;
 
     public Flight(Plane plane, String flightNumber, String destination, String departureAirport, Date departureTime){
         this.passengers = new ArrayList<Passenger>();
@@ -18,8 +20,19 @@ public class Flight {
         this.destination = destination;
         this.departureAirport = departureAirport;
         this.departureTime = departureTime;
+        this.seatNumbers = generateSeatNumbers();
 
     }
+
+    private ArrayList<Integer> generateSeatNumbers(){
+        ArrayList<Integer> seatNumbers = new ArrayList<Integer>();
+        for(int i = 1; i <= this.planeCapacity(); i++){
+            seatNumbers.add(i);
+        }
+        return seatNumbers;
+    }
+
+
 
     public ArrayList<Passenger> getPassengers() {
         return passengers;
@@ -48,8 +61,23 @@ public class Flight {
         }
     }
 
+    public void allocateSeatNumber(Passenger passenger){
+        Random random = new Random();
+        int randomIndex = random.nextInt(this.seatNumbers.size());
+        Integer seatNumber = this.seatNumbers.remove(randomIndex);
+        passenger.setSeatNumber(seatNumber);
+    }
+
 
     public String getFlightNumber() {
         return flightNumber;
+    }
+
+    public Date getDepartureTime() {
+        return departureTime;
+    }
+
+    public ArrayList<Integer> getSeatNumbers() {
+        return seatNumbers;
     }
 }

@@ -2,13 +2,13 @@ public class Passenger {
     private String name;
     private int numBags;
     private Flight flight;
-    private int seatNumber;
+    private Integer seatNumber;
 
-    public Passenger(String name, int numBags, Flight flight){
+    public Passenger(String name, int numBags){
         this.name = name;
         this.numBags = numBags;
-        this.flight = flight;
-        this.seatNumber = 0;
+        this.flight = null;
+        this.seatNumber = null;
     }
 
     public String getName() {
@@ -27,8 +27,10 @@ public class Passenger {
         this.flight = flight;
     }
 
-    public int seatRandomizer(){
-        int numSeats = passenger.flight.planeCapacity();
-        System.out.println(numSeats);
+
+    public Integer getSeatNumber() {
+        return seatNumber;
     }
+
+    public void setSeatNumber(Integer seatNumber){this.seatNumber = seatNumber;}
 }
