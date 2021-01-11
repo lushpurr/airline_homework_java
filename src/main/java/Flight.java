@@ -82,4 +82,6 @@ public class Flight {
     }
 
     public int remainingSeats() { return this.plane.getCapacity() - passengerCount(); }
+
+
 }

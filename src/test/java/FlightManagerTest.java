@@ -59,4 +59,26 @@ public class FlightManagerTest {
         Passenger firstPassengerInArray = sortedPassengers.get(0);
         assertEquals(passenger2, firstPassengerInArray);
     }
+
+    @Test
+    public void canFindPassenger(){
+        flightManager.bookPassenger(passenger1);
+        flightManager.bookPassenger(passenger2);
+        passenger1.setSeatNumber(2);
+        passenger2.setSeatNumber(1);
+        flightManager.sortPassengers();
+        Passenger found = flightManager.getPassenger(2);
+        assertEquals(passenger1, found);
+    }
+
+    @Test
+    public void cantFindPassengerReturnNull(){
+        flightManager.bookPassenger(passenger1);
+        flightManager.bookPassenger(passenger2);
+        passenger1.setSeatNumber(2);
+        passenger2.setSeatNumber(1);
+        flightManager.sortPassengers();
+        Passenger found = flightManager.getPassenger(3);
+        assertEquals(null, found);
+    }
 }

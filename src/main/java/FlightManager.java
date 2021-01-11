@@ -63,4 +63,31 @@ public class FlightManager {
         }
         return sortedPassengers;
     }
+
+    public Passenger getPassenger(int seatNumber) {
+        ArrayList<Passenger> sortedPassengers = this.sortPassengers();
+        Passenger passenger = this.binarySearch(sortedPassengers, seatNumber);
+        return passenger;
+    }
+
+    private Passenger binarySearch(ArrayList<Passenger> passengers, int seat){
+        if (passengers.size() == 0){
+            return null;
+        }
+
+        int midIndex = passengers.size() / 2;
+        Passenger passenger = passengers.get(midIndex);
+
+        if (passenger.getSeatNumber() == seat){
+            return passenger;
+        }
+
+        ArrayList<Passenger> shortList;
+        if (seat > passenger.getSeatNumber()){
+            shortList = new ArrayList<Passenger>(passengers.subList(midIndex + 1, passengers.size()));
+        } else {
+            shortList = new ArrayList<Passenger>(passengers.subList(0, midIndex));
+        }
+        return binarySearch(shortList, seat);
+    }
 }
